@@ -3,6 +3,10 @@ export default {
 		type: 'string',
 		default: 'section',
 	},
+	title: {
+		type: 'string',
+		default: null
+	},
 	enableSpacing: {
 		type: 'boolean',
 		default: false

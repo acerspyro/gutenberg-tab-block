@@ -50,6 +50,12 @@ export default ( props ) => {
 		} )
 	}
 
+	const onChangeTitle = ( e ) => {
+		setAttributes( {
+			title: e.target.value
+		} )
+	}
+
 	const { tagName, customBackgroundColor, customTextColor, resizeTopIsActive, resizeBottomIsActive, bgImage, bgOptions, enableSpacing } = attributes
 
 	return (
@@ -248,6 +254,17 @@ export default ( props ) => {
 					color: customTextColor,
 				} }
 			>
+				<div className='title-box'>
+					<span>{ __( 'Tab Title: ' ) }</span>
+					<input
+						type='text'
+						className='editor-plain-text block-editor-plain-text'
+						placeholder={ __( 'Title...' ) }
+						onChange={ onChangeTitle }
+						value={ attributes.title }
+					>
+					</input>
+				</div>
 				{ !! bgImage && <div
 					className={ classnames( 
 						'section-bg', {
