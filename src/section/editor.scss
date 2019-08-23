@@ -87,7 +87,7 @@
 				visibility: hidden;
 			}		}
 		&:hover {
-			.core-blocks-spacer__resize-handler-bottom, {
+			.core-blocks-spacer__resize-handler-bottom {
 				display: block;
 			}
 			&::before, &::after, & > span::before, & > span::after {
