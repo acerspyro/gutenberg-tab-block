@@ -5,8 +5,7 @@
  * Simple block, renders and saves the same content without any interactivity.
  */
 import classnames from 'classnames'
-import { Resizable } from "re-resizable";
-import Section from './section-tag'
+import ResizableBox from 're-resizable'
 
 const { __ } = wp.i18n; // Import __() from wp.i18n
 const { 
@@ -28,6 +27,7 @@ const {
 } = wp.blockEditor;
 
 export default ( props ) => {
+	console.log('EDIT DEPRECATED', props);
 	const {
 		attributes,
 		setAttributes,
@@ -50,13 +50,7 @@ export default ( props ) => {
 		} )
 	}
 
-	const onChangeTitle = ( e ) => {
-		setAttributes( {
-			title: e.target.value
-		} )
-	}
-
-	const { tagName, customBackgroundColor, customTextColor, resizeTopIsActive, resizeBottomIsActive, bgImage, bgOptions, enableSpacing } = attributes
+	const { customBackgroundColor, customTextColor, resizeTopIsActive, resizeBottomIsActive, bgImage, bgOptions, enableSpacing } = attributes
 
 	return (
 		<Fragment>
@@ -137,7 +131,7 @@ export default ( props ) => {
 										<img src={ bgImage.image.url } alt={ __( 'BG Image' ) } />
 									</ResponsiveWrapper>
 								</Button>
-								<Button onClick={ open } isSecondary isLarge>
+								<Button onClick={ open } isLarge>
 									{ __( 'Replace image' ) }
 								</Button>
 								<Button onClick={ onRemoveBgImage } isLink isDestructive>
@@ -246,28 +240,16 @@ export default ( props ) => {
 					onChange={ ( tagName ) => { setAttributes( { tagName } ) } }				
 				/>
 			</InspectorAdvancedControls>
-			<Section
-				tagName={tagName}
+			<section
 				className={ props.className }
 				style={ {
 					backgroundColor: customBackgroundColor,
 					color: customTextColor,
 				} }
 			>
-				<div className='title-box'>
-					<span>{ __( 'Tab Title: ' ) }</span>
-					<input
-						type='text'
-						className='editor-plain-text block-editor-plain-text'
-						placeholder={ __( 'Title...' ) }
-						onChange={ onChangeTitle }
-						value={ attributes.title }
-					>
-					</input>
-				</div>
 				{ !! bgImage && <div
 					className={ classnames( 
-						'section-bg', {
+						'tab-bg', {
 							'bg__repeated': bgOptions.repeat,
 							'bg__stretched': bgOptions.stretch || bgOptions.fixed,
 							'bg__fixed': bgOptions.fixed,
@@ -278,7 +260,7 @@ export default ( props ) => {
 					} }
 				/> }
 				{ !! enableSpacing &&
-					<Resizable
+					<ResizableBox
 						className={ classnames( 'spacing-box', { 'resizing': resizeTopIsActive } ) }
 						size={ {
 							height: attributes.spacingTop,
@@ -314,7 +296,7 @@ export default ( props ) => {
 					/>
 				}
 				<InnerBlocks />
-				{ !! enableSpacing && <Resizable
+				{ !! enableSpacing && <ResizableBox
 						className={ classnames( 'spacing-box', { 'resizing': resizeBottomIsActive } ) }
 						size={ {
 							height: attributes.spacingBottom,
@@ -349,7 +331,7 @@ export default ( props ) => {
 						} }
 					/>
 				}
-			</Section>
+			</section>
 		</Fragment>
 	);
 }

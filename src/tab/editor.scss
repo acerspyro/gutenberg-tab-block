@@ -5,9 +5,9 @@
  * which makes it higher in priority.
  */
  
- .wp-block-mkl-section-block {
+ .wp-block-acerspyro-ca-tab-block {
 	position: relative;
-	.section-bg {
+	.tab-bg {
 		&.bg__fixed {
 			background-position: 0 -100%;
 		}
@@ -17,15 +17,15 @@
 		margin-right: 0;
 	}
 }
-.edit-post-visual-editor .editor-block-list__block[data-type="mkl/section-block"] {
+.edit-post-visual-editor .editor-block-list__block[data-type="acerspyro-ca/tab-block"] {
 	/* Clearfix */
-	section.wp-block-mkl-section-block::before,
-	section.wp-block-mkl-section-block::after {
+	section.wp-block-acerspyro-ca-tab-block::before,
+	section.wp-block-acerspyro-ca-tab-block::after {
 		content: ' ';
 		display: table;
 	}
 }
-.edit-post-visual-editor .editor-block-list__block[data-type="mkl/section-block"].is-selected {
+.edit-post-visual-editor .editor-block-list__block[data-type="acerspyro-ca/tab-block"].is-selected {
 
 	.core-blocks-spacer__resize-handler-bottom {
 		bottom: calc(50% - 8px) !important;

@@ -1,11 +1,11 @@
 /**
- * BLOCK: section-block
+ * BLOCK: tab-block
  *
  * Registering a basic block with Gutenberg.
  * Simple block, renders and saves the same content without any interactivity.
  */
 import classnames from 'classnames'
-import Section from './section-tag'
+import Tab from './tab-tag'
 
 const {
 	InnerBlocks,
@@ -16,6 +16,7 @@ export default ( { attributes, className } ) => {
 
 	const { 
 		tagName,
+		title,
 		backgroundColor,
 		customTextColor,
 		customBackgroundColor,
@@ -40,10 +41,10 @@ export default ( { attributes, className } ) => {
 		paddingTop: (!! enableSpacing) && spacingTop ? spacingTop : undefined,
 	}
 	return (
-		<Section tagName={tagName} className={ classes ? classes : undefined } style={ styles }>
+		<Tab tagName={tagName} id={ tagId } className={ classes ? classes : undefined } title={ title } style={ styles }>
 			{ !! bgImage && <div
 				className={ classnames( 
-					'section-bg', {
+					'tab-bg', {
 						'bg__repeated': bgOptions.repeat,
 						'bg__stretched': bgOptions.stretch || bgOptions.fixed,
 						'bg__fixed': bgOptions.fixed,
@@ -54,6 +55,6 @@ export default ( { attributes, className } ) => {
 				} }
 			/> }
 			<InnerBlocks.Content />
-		</Section>
+		</Tab>
 	);
 }

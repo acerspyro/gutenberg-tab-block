@@ -1,5 +1,5 @@
 /**
- * BLOCK: section-block
+ * BLOCK: tab-block
  *
  * Registering a basic block with Gutenberg.
  * Simple block, renders and saves the same content without any interactivity.
@@ -7,8 +7,8 @@
 import './style.scss';
 import './editor.scss';
 
-import editSection from './edit'
-import saveSection from './save'
+import editTab from './edit'
+import saveTab from './save'
 import deprecatedBlock from './deprecated'
 import blockAttributes from './attributes'
 
@@ -49,13 +49,13 @@ const FallbackStyles = withFallbackStyles( ( node, ownProps ) => {
  * @return {?WPBlock}          The block, if it has been successfully
  *                             registered; otherwise `undefined`.
  */
-registerBlockType( 'mkl/section-block', {
+registerBlockType( 'acerspyro-ca/tab-block', {
 	// Block name. Block names must be string that contains a namespace prefix. Example: my-plugin/my-custom-block.
-	title: __( 'Section' ), // Block title.
+	title: __( 'Tab' ), // Block title.
 	icon: 'align-center', // Block icon from Dashicons → https://developer.wordpress.org/resource/dashicons/.
 	category: 'layout', // Block category — Group blocks together based on common traits E.g. common, formatting, layout widgets, embed.
 	keywords: [
-		__( 'section' ),
+		__( 'tab' ),
 		__( 'container' ),
 	],
 	attributes: blockAttributes,
@@ -73,7 +73,7 @@ registerBlockType( 'mkl/section-block', {
 	edit: compose( [
 		withColors( 'backgroundColor', { textColor: 'color' } ),
 		FallbackStyles,
-	] )( editSection ),
+	] )( editTab ),
 
 
 	/**
@@ -84,7 +84,7 @@ registerBlockType( 'mkl/section-block', {
 	 *
 	 * @link https://wordpress.org/gutenberg/handbook/block-api/block-edit-save/
 	 */
-	save: saveSection,
+	save: saveTab,
 
 	deprecated: deprecatedBlock,
 } );
