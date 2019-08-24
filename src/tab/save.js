@@ -41,7 +41,7 @@ export default ( { attributes, className } ) => {
 		paddingTop: (!! enableSpacing) && spacingTop ? spacingTop : undefined,
 	}
 	return (
-		<Tab tagName={tagName} id={ tagId } className={ classes ? classes : undefined } title={ title } style={ styles }>
+		<Tab tagName={tagName} className={ classes ? classes : undefined } title={ title } style={ styles }>
 			{ !! bgImage && <div
 				className={ classnames( 
 					'tab-bg', {
