@@ -52,7 +52,7 @@ const FallbackStyles = withFallbackStyles( ( node, ownProps ) => {
 registerBlockType( 'acerspyro-ca/tab-block', {
 	// Block name. Block names must be string that contains a namespace prefix. Example: my-plugin/my-custom-block.
 	title: __( 'Tab' ), // Block title.
-	icon: 'align-center', // Block icon from Dashicons → https://developer.wordpress.org/resource/dashicons/.
+	icon: 'index-card', // Block icon from Dashicons → https://developer.wordpress.org/resource/dashicons/.
 	category: 'layout', // Block category — Group blocks together based on common traits E.g. common, formatting, layout widgets, embed.
 	keywords: [
 		__( 'tab' ),
